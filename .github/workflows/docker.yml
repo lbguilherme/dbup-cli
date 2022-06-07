@@ -23,7 +23,9 @@ jobs:
         run: date -u +"%Y-%m-%d-%H-%M-%S" > tag
 
       - name: Docker Build
-        run: docker build . --tag ghcr.io/lbguilherme/dbup-cli:$(cat tag) --pull
+        run: docker build . --tag ghcr.io/lbguilherme/dbup-cli:$(cat tag) --tag ghcr.io/lbguilherme/dbup-cli:latest --pull
 
       - name: Docker Push
-        run: docker push ghcr.io/lbguilherme/dbup-cli:$(cat tag)
+        run: |
+          docker push ghcr.io/lbguilherme/dbup-cli:$(cat tag)
+          docker push ghcr.io/lbguilherme/dbup-cli:latest
