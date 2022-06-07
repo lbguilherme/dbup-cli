@@ -23,7 +23,7 @@ jobs:
         run: date -u +"%Y-%m-%d-%H-%M-%S" > tag
 
       - name: Docker Build
-        run: docker build . --tag ghcr.io/cubos/remote-images-${{ matrix.image }}:$(cat tag) --pull
+        run: docker build . --tag ghcr.io/lbguilherme/dbup-cli:$(cat tag) --pull
 
       - name: Docker Push
-        run: docker push ghcr.io/cubos/remote-images-${{ matrix.image }}:$(cat tag)
+        run: docker push ghcr.io/lbguilherme/dbup-cli:$(cat tag)
