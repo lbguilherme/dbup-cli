@@ -5,7 +5,7 @@ COPY src/dbup-cli/dbup-cli.csproj ./
 RUN dotnet restore
 
 COPY src/dbup-cli ./
-RUN dotnet publish --no-restore -c Release -o out -f net6.0 -r linux-musl-x64 --self-contained  /p:PublishSingleFile=true
+RUN dotnet publish --no-restore -c Release -o out -f net6.0 -r linux-musl-x64 --self-contained  /p:PublishSingleFile=true /p:IncludeAllContentForSelfExtract=true
 
 
 
